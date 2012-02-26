@@ -2,14 +2,23 @@ package XML::PList;
 
 use strict;
 use warnings;
+use Carp;
 
 our $VERSION = '0.01';
 
+# ------------------------------------------------------------------------------
 sub new {
+    my $class = shift;
     my $self = {};
-    return bless $self;
+    $self->{plist_filename} = shift;
+
+    croak("plist filename required in new()") unless defined $self->{plist_filename};
+    croak("plist '$self->{plist_filename}' not found or not read") unless -r $self->{plist_filename};
+
+    return bless $self, $class;
 }
 
+# ------------------------------------------------------------------------------
 sub parse {
 
 }
