@@ -44,10 +44,6 @@ L<Data::Plist>
 
 Sergey Mudrik, E<lt>sergey.mudrik@gmail.comE<gt>
 
-=head1 COPYRIGHT AND LICENSE
-
-Copyright (C) 2012 by Sergey Mudrik
-
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10 or,
 at your option, any later version of Perl 5 you may have available.
