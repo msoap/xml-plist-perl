@@ -3,4 +3,8 @@ Makefile.PL
 MANIFEST
 README
 t/module_load.t
+t/method_new.t
+t/method_parse.t
+t/plists/test00_bin.plist
+t/plists/test01_xml.plist
 lib/XML/PList.pm
