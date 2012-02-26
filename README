@@ -1,0 +1,51 @@
+XML-PList
+=========
+
+NAME
+----
+
+XML::PList - parse mac .plist files
+
+SYNOPSIS
+--------
+
+    use XML::PList;
+
+    my $data = XML::PList->new('file.plist')->parse();
+
+DESCRIPTION
+-----------
+
+METHODS
+-------
+
+###new
+
+###parse
+
+INSTALLATION
+------------
+To install this module type the following:
+
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+DEPENDENCIES
+------------
+This module requires these other modules and libraries:
+
+- XML::LibXML
+
+SEE ALSO
+--------
+- Mac::Tie::PList
+- Data::Plist
+
+AUTHOR
+------
+Copyright (C) 2012 by Sergey Mudrik
+
+This library is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
