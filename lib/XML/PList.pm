@@ -15,10 +15,13 @@ our $VERSION = '0.01';
 sub new {
     my $class = shift;
     my $self = {};
-    $self->{plist_filename} = shift;
+    $self->{plist} = shift;
 
-    croak("plist filename required in new()") unless defined $self->{plist_filename};
-    croak("plist '$self->{plist_filename}' not found or not read") unless -r $self->{plist_filename};
+    if (ref($self->{plist}) eq '') {
+        # is filename
+        croak("plist filename required in new()") unless defined $self->{plist};
+        croak("plist '$self->{plist}' not found or not read") unless -r $self->{plist};
+    }
 
     return bless $self, $class;
 }
@@ -29,7 +32,9 @@ sub parse {
 
     my $result;
 
-    my $dom = XML::LibXML->load_xml(location => $self->{plist_filename});
+    my $dom = ref($self->{plist}) eq 'SCALAR'
+              ? XML::LibXML->load_xml(string => ${$self->{plist}})
+              : XML::LibXML->load_xml(location => $self->{plist});
 
     foreach my $node ($dom->documentElement()->childNodes()) {
         if ($node->nodeType == XML::LibXML::XML_ELEMENT_NODE && $node->nodeName() eq 'dict') {
@@ -120,15 +125,24 @@ XML::PList - parse mac .plist files
 =head1 SYNOPSIS
 
   use XML::PList;
+
+  # parse file
   my $data = XML::PList->new('file.plist')->parse();
+
+  # parse string
+  my $data = XML::PList->new(\'<?xml...<plist>...')->parse();
 
 =head1 DESCRIPTION
 
-Read mac plist files (xml for now)
+Read mac plist files (xml only)
 
 =head2 EXPORT
 
 None by default.
+
+=head2 DEPENDENCIES
+
+XML::LibXML, MIME::Base64
 
 =head1 SEE ALSO
 

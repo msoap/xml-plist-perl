@@ -11,7 +11,11 @@ SYNOPSIS
 
     use XML::PList;
 
+    # parse file
     my $data = XML::PList->new('file.plist')->parse();
+
+    # parse string
+    my $data = XML::PList->new(\'<?xml...<plist>...')->parse();
 
 DESCRIPTION
 -----------
@@ -24,6 +28,11 @@ METHODS
 create XML::PList object
 
     my $plist = XML::PList->new($filename);
+    my $plist = XML::PList->new(\$string_with_plist_xml);
+
+    # parse binary plist via external utility plutil (on Mac OS only)
+    my $xml_string = qx'plutil -convert xml1 -o - binary.plist';
+    my $plist = XML::PList->new(\$xml_string);
 
 ###parse
 parse plist xml into perl structure
