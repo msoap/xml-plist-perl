@@ -1,7 +1,7 @@
 Changes
 Makefile.PL
 MANIFEST
-README
+README.md
 t/module_load.t
 t/method_new.t
 t/method_parse.t
