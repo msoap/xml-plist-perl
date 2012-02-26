@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>root_dict</key>
+	<dict>
+		<key>key-array</key>
+		<array>
+			<string>string in array</string>
+			<integer>777</integer>
+			<false/>
+			<date>2012-02-21T13:57:11Z</date>
+			<data>
+			Z2Qg
+			</data>
+		</array>
+		<key>key-dict</key>
+		<dict>
+			<key>sub-key-string</key>
+			<string>sub value</string>
+		</dict>
+		<key>key1</key>
+		<string>string value with &lt;tag&gt; &amp; symbols</string>
+		<key>key2</key>
+		<integer>123</integer>
+		<key>key3</key>
+		<true/>
+		<key>key4</key>
+		<date>2012-02-21T13:57:11Z</date>
+		<key>key5</key>
+		<data>
+		d3h5
+		</data>
+		<key>key6</key>
+		<string>кириллица</string>
+		<key>key7</key>
+		<false/>
+	</dict>
+</dict>
+</plist>
