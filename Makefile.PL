@@ -8,7 +8,8 @@ WriteMakefile(
     NAME              => 'XML::PList',
     VERSION_FROM      => 'lib/XML/PList.pm',
     PREREQ_PM         => {
-        'XML::LibXML' => 1.0
+        'XML::LibXML' => 1.70,
+        'MIME::Base64' => 1.0
     },
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/XML/PList.pm', # retrieve abstract from module
