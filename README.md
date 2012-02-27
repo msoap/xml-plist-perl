@@ -60,6 +60,7 @@ SEE ALSO
 
 - Mac::Tie::PList
 - Data::Plist
+- Mac::PropertyList
 
 AUTHOR
 ------

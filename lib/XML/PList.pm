@@ -147,7 +147,8 @@ XML::LibXML, MIME::Base64
 =head1 SEE ALSO
 
 L<Mac::Tie::PList>,
-L<Data::Plist>
+L<Data::Plist>,
+L<Mac::PropertyList>
 
 =head1 AUTHOR
 
