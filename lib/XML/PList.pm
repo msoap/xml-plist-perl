@@ -37,7 +37,10 @@ sub parse {
               : XML::LibXML->load_xml(location => $self->{plist});
 
     foreach my $node ($dom->documentElement()->childNodes()) {
-        if ($node->nodeType == XML::LibXML::XML_ELEMENT_NODE && $node->nodeName() eq 'dict') {
+        if ($node->nodeType == XML::LibXML::XML_ELEMENT_NODE
+            && ($node->nodeName() eq 'dict' || $node->nodeName() eq 'array')
+           )
+        {
             $result = _parse_anything($node);
             last; # only one dict item at root of plist
         }
