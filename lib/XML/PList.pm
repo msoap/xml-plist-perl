@@ -61,6 +61,8 @@ sub _parse_anything {
         return $node->textContent();
     } elsif ($node->nodeName() eq 'integer') {
         return $node->textContent() + 0;
+    } elsif ($node->nodeName() eq 'real') {
+        return $node->textContent() + 0;
     } elsif ($node->nodeName() eq 'true') {
         return 1;
     } elsif ($node->nodeName() eq 'false') {
