@@ -1,4 +1,8 @@
 Revision history for Perl extension XML::PList.
 
+0.02  Thu Mar  8 22:40:02 2012
+    - allow real type
+    - allow array at root of plist
+
 0.01  Sun Feb 26 15:23:32 2012
     - first version, only read plist
