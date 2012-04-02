@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>XML::PList (perl) by msoap</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>XML::PList (perl)</h1>
+<p>Read Mac OS plist files as xml (using XML::LibXML) / perl</p>
+        <p class="view"><a href="https://github.com/msoap/xml-plist-perl">View the Project on GitHub <small>msoap/xml-plist-perl</small></a></p>
+        <ul>
+          <li><a href="https://github.com/msoap/xml-plist-perl/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/msoap/xml-plist-perl/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/msoap/xml-plist-perl">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>XML-PList</h1>
+
+<h2>NAME</h2>
+
+<p>XML::PList - parse mac os .plist files</p>
+
+<h2>SYNOPSIS</h2>
+
+<div class="highlight">
+<pre>    <span class="k">use</span> <span class="nn">XML::</span><span class="n">PList</span><span class="p">;</span>
+
+    <span class="c1"># parse file</span>
+    <span class="k">my</span> <span class="nv">$data</span> <span class="o">=</span> <span class="nn">XML::</span><span class="n">PList</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span><span class="s">'file.plist'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">parse</span><span class="p">();</span>
+
+    <span class="c1"># parse string</span>
+    <span class="k">my</span> <span class="nv">$data</span> <span class="o">=</span> <span class="nn">XML::</span><span class="n">PList</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span><span class="o">\</span><span class="s">'&lt;?xml...&lt;plist&gt;...'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">parse</span><span class="p">();</span>
+</pre>
+</div>
+
+
+<h2>DESCRIPTION</h2>
+
+<p>parse mac os .plist (only xml) files</p>
+
+<h2>METHODS</h2>
+
+<p>###new</p>
+
+<p>create XML::PList object</p>
+
+<div class="highlight">
+<pre>    <span class="k">my</span> <span class="nv">$plist</span> <span class="o">=</span> <span class="nn">XML::</span><span class="n">PList</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span><span class="nv">$filename</span><span class="p">);</span>
+    <span class="k">my</span> <span class="nv">$plist</span> <span class="o">=</span> <span class="nn">XML::</span><span class="n">PList</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span><span class="o">\</span><span class="nv">$string_with_plist_xml</span><span class="p">);</span>
+
+    <span class="c1"># parse binary plist via external utility plutil (on Mac OS only)</span>
+    <span class="k">my</span> <span class="nv">$xml_string</span> <span class="o">=</span> <span class="sx">qx'plutil -convert xml1 -o - binary.plist'</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$plist</span> <span class="o">=</span> <span class="nn">XML::</span><span class="n">PList</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span><span class="o">\</span><span class="nv">$xml_string</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>###parse</p>
+
+<p>parse plist xml into perl structure</p>
+
+<div class="highlight">
+<pre>    <span class="k">my</span> <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$plist</span><span class="o">-&gt;</span><span class="n">parse</span><span class="p">();</span>
+</pre>
+</div>
+
+
+<h2>INSTALLATION</h2>
+
+<p>To install this module type the following:</p>
+
+<pre><code>perl Makefile.PL
+make
+make test
+make install
+</code></pre>
+
+<h2>DEPENDENCIES</h2>
+
+<p>This module requires these other modules and libraries:</p>
+
+<ul>
+<li><a href="http://search.cpan.org/dist/XML-LibXML/">XML::LibXML</a></li>
+<li><a href="http://search.cpan.org/dist/MIME-Base64/">MIME::Base64</a></li>
+</ul><h2>SEE ALSO</h2>
+
+<ul>
+<li><a href="http://search.cpan.org/dist/Mac-Tie-PList/">Mac::Tie::PList</a></li>
+<li><a href="http://search.cpan.org/dist/Data-Plist/">Data::Plist</a></li>
+<li><a href="http://search.cpan.org/dist/Mac-PropertyList/">Mac::PropertyList</a></li>
+</ul><h2>AUTHOR</h2>
+
+<p>Copyright (C) 2012 by Sergey Mudrik</p>
+
+<p>This library is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/msoap">msoap</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
