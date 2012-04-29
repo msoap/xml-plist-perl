@@ -18,15 +18,15 @@ ok(ref($plist_data) eq 'HASH', 'result is hash');
 
 # from string
 my $is_mac = $^O eq 'darwin';
-my $xml_string = $is_mac ? qx'plutil -convert xml1 -o - t/plists/test00_bin.plist' : join('', <DATA>);
+my $xml_string_from_data = join('', <DATA>);
+my $xml_string = $is_mac ? qx'plutil -convert xml1 -o - t/plists/test00_bin.plist' : $xml_string_from_data;
 lives_ok { XML::PList->new(\$xml_string)->parse() } 'parsing binary plist via plutil';
 
 my $bad_xml_string = $xml_string . "is not xml";
 dies_ok { XML::PList->new(\$bad_xml_string)->parse() } 'parsing invalid binary plist';
 
 # string with entity and real type
-$xml_string = join('', <DATA>);
-lives_ok { $plist_data = XML::PList->new(\$xml_string)->parse() } 'parsing plutil with real type';
+lives_ok { $plist_data = XML::PList->new(\$xml_string_from_data)->parse() } 'parsing plutil with real type';
 ok(ref($plist_data) eq 'HASH', 'result is hash');
 ok($plist_data->{key1} eq 'string value with <tag> & symbols', 'result is string');
 ok(sprintf("%0.2f", $plist_data->{key_is_real}) eq '3.14', 'result is real');
