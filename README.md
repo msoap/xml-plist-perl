@@ -24,7 +24,7 @@ parse mac os .plist (only xml) files
 METHODS
 -------
 
-###new
+### new
 create XML::PList object
 
     my $plist = XML::PList->new($filename);
@@ -34,7 +34,7 @@ create XML::PList object
     my $xml_string = qx'plutil -convert xml1 -o - binary.plist';
     my $plist = XML::PList->new(\$xml_string);
 
-###parse
+### parse
 parse plist xml into perl structure
 
     my $data = $plist->parse();
